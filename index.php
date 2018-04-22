@@ -2,8 +2,15 @@
 <html>
 <head>
     <title>file html</title>
+   
+
+
+ <!--                                written by giorgio1985                                                          -->
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="E:/wamp/documenti.js"></script> 
   <link href="http://vjs.zencdn.net/5.10.2/video-js.css" rel="stylesheet">
 
