@@ -10,6 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
   <script src="./buttonClick.js"></script>
+  <script src="./postQuery.js"></script>
+  <script src="./min.jquery.lib.js"></script>
 
   <link rel="stylesheet" type="text/css" href="./form.css">
   <link rel="stylesheet" type="text/css" href="./buttons.css">
@@ -23,7 +25,7 @@
   <h1>handshake</h1>
 </div>
 
-<form action="action_page.php">
+<form id="myProfile" method="POST" action="./index.php"> 
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="handshake" class="avatar">
   </div>
@@ -33,7 +35,7 @@
     <input type="text" placeholder="Enter Username" name="username" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Enter Enter Email" name="email" required>
+    <input type="email" placeholder="Enter Email" name="email" required>
 
     <label for="phone"><b>Phone</b></label>
     <input type="number" placeholder="Enter Phone" name="phone" required>
@@ -47,14 +49,45 @@
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
+  
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form> 
+risposta:<div id="risposta"></div>
 
+<script type="text/javascript">
+  //function prova(){
+  $(document).ready(function() {
+    $("form#myProfile").submit(function() {
+       //prevent Default functionality
+       // e.preventDefault();
+       var username = $("#username").val();
+       var email = $("#email").val();
+       var phone = $("#phone").val();
+       var password = $("#password").val();
+      
+         $.ajax({
+          type: "POST",
+          url: "./index.php",
+          dataType: "html",
+          data: "username=" + username + "&email=" + email + "&phone=" + phone + "&password=" + password,
+          success: function(risp){
+               $("#risposta").html(risp);
+          },
+          error: function(){
+            alert("chiamata fallita!");
+          }
+         });
+         return false;
+});
 
+   });
+
+//}
+</script>
 
 
 </body>
