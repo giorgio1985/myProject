@@ -25,7 +25,7 @@
   <h1>handshake</h1>
 </div>
 
-<form id="myProfile" method="POST" action="./index.php"> 
+<form id="myProfile" method="POST" action=""> 
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="handshake" class="avatar">
   </div>
@@ -44,7 +44,7 @@
     <input type="password" placeholder="Enter Password" name="password" required>
 
 
-    <button type="submit">Login</button>
+    <button type="submit" name="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -76,6 +76,7 @@ risposta:<div id="risposta"></div>
           data: "username=" + username + "&email=" + email + "&phone=" + phone + "&password=" + password,
           success: function(risp){
                $("#risposta").html(risp);
+               //window.location.href="index.php";
           },
           error: function(){
             alert("chiamata fallita!");
@@ -83,9 +84,7 @@ risposta:<div id="risposta"></div>
          });
          return false;
 });
-
    });
-
 //}
 </script>
 
