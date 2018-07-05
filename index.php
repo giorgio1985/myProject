@@ -1,15 +1,19 @@
 <?php
+require './db_table_creator.php';
+session_start();
+if (isset($_POST['username'], $_POST['email'],  $_POST['phone'], $_POST['password'])){
+$username = htmlspecialchars($_POST["username"]);
+$password = htmlspecialchars($_POST["password"]);
+$email = htmlspecialchars($_POST["email"]);
+$phone = (int)$_POST["phone"];
+	echo '<h3>'.'mi e andata bene!!!<br>' .$username.' '.$password. ' '. $email. ' '. $phone.'</h3>';
+	echo '<h3><br>fine della sofferenza'.$phone.'</h3>';
+	//  INSERIRE NELLA TABELLA 
 
-if (isset($_POST["username"]) && ($_POST["password"]) && ($_POST["email"]) && ($_POST["phone"])){
-$username = $_POST["username"];
-$password = $_POST["password"];
-$email = $_POST["email"];
-$phone = $_POST["phone"];
-	echo "mi e andata bene!!!";
 
 } else {
 	 
-	echo "mi e andatat male!!!";
+	echo "mi e andatat male!!";
 	
 }
 ?>
