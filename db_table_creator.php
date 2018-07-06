@@ -5,14 +5,14 @@ $sql = "CREATE TABLE IF NOT EXISTS login (
 id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 username VARCHAR(30) NOT NULL,
 email VARCHAR(30) NOT NULL,
-phone INT(12) NOT NULL,
+phone INT(10) NOT NULL,
 password VARCHAR(70) NOT NULL,
 reg_date TIMESTAMP
 ) ENGINE = InnoDB";
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($connect, $sql)) {
     echo "Table Login created successfully";
 } else {
-    echo "Error creating table: " . mysqli_error($conn);
+    echo "Error creating table: " . mysqli_error($connect);
 }
 $sql2 = "CREATE TABLE IF NOT EXISTS videos (
 idVideo INT(6) NOT NULL, 
@@ -23,10 +23,10 @@ genereVideo VARCHAR (30) NOT NULL,
 timestampVideo TIMESTAMP,
 FOREIGN KEY (idVideo) REFERENCES login (id)
 )ENGINE =InnoDB";
-if (mysqli_query($conn, $sql2)) {
+if (mysqli_query($connect, $sql2)) {
     echo "Table Videos created successfully";
 } else {
-    echo "Error creating table: " . mysqli_error($conn);
+    echo "Error creating table: " . mysqli_error($connect);
 }
-mysqli_close($conn);
+mysqli_close($connect);
 ?>
