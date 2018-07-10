@@ -1,28 +1,26 @@
-function prova(){
-	$(document).ready(function() {
-    $("div#myProfile").submit(function() {
+function myprofile(){
+  $(function() {
+    $("form#myProfile").on("submit", function(e) {
        //prevent Default functionality
-       // e.preventDefault();
-       var username = $("#username").val();
-       var email = $("#email").val();
-       var phone = $("#phone").val();
-       var password = $("#password").val();
-      
+       e.preventDefault();
+    
+      var form=$("#myProfile").serialize();
          $.ajax({
-         	type: "POST",
-         	//url: "",
-         	dataType: "html",
-         	data: "username=" + username + "&email=" + email + "&phone=" + phone + "&password=" + password,
-         	success: function(){
-               window.location.href="./index.html";
-         	},
-         	error: function(){
-         		alert("chiamata fallita!");
-         	}
+          type: "POST",
+          url: "./index.php",
+          dataType: "html",
+          data: form,
+          success: function(data){
+               $("#risposta").html(data);
+              // window.location.href="private.php";
+          },
+          error: function(){
+            alert("chiamata fallita!");
+          }
          });
          return false;
 });
-
    });
+//}
 
 }

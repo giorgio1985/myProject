@@ -44,7 +44,7 @@
     <input type="password" placeholder="Enter Password" name="password" required>
 
 
-    <button type="submit" name="submit">Login</button>
+    <button type="submit" name="submit" onsubmit="myprofile()">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -59,29 +59,7 @@
 risposta:<div id="risposta"></div>
 
 <script type="text/javascript">
-  $(function() {
-    $("form#myProfile").on("submit", function(e) {
-       //prevent Default functionality
-       e.preventDefault();
-    
-      var form=$("#myProfile").serialize();
-         $.ajax({
-          type: "POST",
-          url: "./index.php",
-          dataType: "html",
-          data: form,
-          success: function(data){
-               $("#risposta").html(data);
-               window.location.href="private.php";
-          },
-          error: function(){
-            alert("chiamata fallita!");
-          }
-         });
-         return false;
-});
-   });
-//}
+  // here js scripts
 </script>
 
 
