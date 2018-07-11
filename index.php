@@ -6,7 +6,7 @@
 <body>
 <?php
 session_start();
-//require './db_connector.php';
+require './db_connector.php';
 require './db_table_creator.php';
 $servername = "localhost";
 $username = "root";
@@ -29,7 +29,18 @@ $_time= strtotime("now");
 	//  INSERIRE NELLA TABELLA 
 	$sql= "INSERT INTO login (username, email, phone, password) VALUES ('$_username', '$_email', '$_phone', '$_password')"; 
 if (mysqli_query($connect, $sql)) {
+$_SESSION["user"]=$_username;
+$_SESSION["pass"]=$_password;
+$_SESSION["emai"]=$_email;
+$_SESSION["time"]=$_time;
     echo "New record created successfully";
+  $str = <<<MY_MARKER
+<script type="text/javascript">
+  window.location.href="./private.php";
+</script>
+MY_MARKER;
+
+echo $str;
 } else {
     echo  mysqli_error($connect);
 }

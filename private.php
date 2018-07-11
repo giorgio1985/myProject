@@ -17,13 +17,12 @@
 <h4>private</h4>
 <p>Hello world private!</p>
 <?php
-
 require './index.php';
 require './db_connector.php';
 require './db_table_creator.php';
 //session_start();
-echo "hello from php" .$_username;
-
+echo "hello from php     " .$_SESSION["user"];
 ?>
 </body>
 </html>
+

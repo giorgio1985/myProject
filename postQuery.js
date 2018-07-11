@@ -12,7 +12,7 @@ function myprofile(){
           data: form,
           success: function(data){
                $("#risposta").html(data);
-              // window.location.href="private.php";
+               window.location.href="./private.php";
           },
           error: function(){
             alert("chiamata fallita!");
