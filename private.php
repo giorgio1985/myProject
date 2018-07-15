@@ -21,7 +21,11 @@ require './index.php';
 require './db_connector.php';
 require './db_table_creator.php';
 //session_start();
-echo "hello from php     " .$_SESSION["user"];
+echo "<br>";
+echo "Username:" .$_SESSION["user"];
+echo "<br>";
+echo "Password: " .$_SESSION["pass"];	
+echo "<br>";	
 ?>
 </body>
 </html>
