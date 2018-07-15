@@ -20,13 +20,29 @@ if (!$connect) {
 }
 if (isset($_POST['username'], $_POST['email'],  $_POST['phone'], $_POST['password'])){
 $_username = htmlspecialchars($_POST["username"]);
-$_password = htmlspecialchars($_POST["password"]);
+$_password = md5(htmlspecialchars($_POST["password"]));
 $_email = htmlspecialchars($_POST["email"]);
 $_phone = (int)$_POST["phone"];
 $_time= strtotime("now");
-	echo '<h3>'.'mi e andata bene!!!<br>' .$_username.' '.$_password. ' '. $_email. ' '. $_phone.'</h3>';
-	echo '<h3><br>fine della sofferenza</h3>';
-	//  INSERIRE NELLA TABELLA 
+
+$select_table = SELECT username, password, email, phone FROM login WHERE username = $_username AND password = $_password AND email = $_email AND phone = $_phone;
+$result = mysqli_query($connect, $select_table);
+if(mysqli_num_rows($result)>0){
+  $back = <<<RETURN_BACK
+<script type="text/javascript">
+  window.location.href="./logPage.php";
+</script>
+RETURN_BACK;
+
+echo $back;
+}
+	//echo '<h3>'.'mi e andata bene!!!<br>' .$_username.' '.$_password. ' '. $_email. ' '. $_phone.'</h3>';
+	//echo '<h3><br>fine della sofferenza</h3>';
+        //  INSERIRE NELLA TABELLA 
+
+	
+	
+	
 	$sql= "INSERT INTO login (username, email, phone, password) VALUES ('$_username', '$_email', '$_phone', '$_password')"; 
 if (mysqli_query($connect, $sql)) {
 $_SESSION["user"]=$_username;
