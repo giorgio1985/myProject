@@ -25,7 +25,7 @@ $_email = htmlspecialchars($_POST["email"]);
 $_phone = (int)$_POST["phone"];
 $_time= strtotime("now");
 
-$select_table = SELECT username, password, email, phone FROM login WHERE username = $_username AND password = $_password AND email = $_email AND phone = $_phone;
+$select_table = "SELECT * FROM login WHERE username = $_username, password = $_password, email = $_email, phone = $_phone";
 $result = mysqli_query($connect, $select_table);
 if(mysqli_num_rows($result)>0){
   $back = <<<RETURN_BACK
@@ -35,7 +35,7 @@ if(mysqli_num_rows($result)>0){
 RETURN_BACK;
 
 echo $back;
-}
+} 
 	//echo '<h3>'.'mi e andata bene!!!<br>' .$_username.' '.$_password. ' '. $_email. ' '. $_phone.'</h3>';
 	//echo '<h3><br>fine della sofferenza</h3>';
         //  INSERIRE NELLA TABELLA 

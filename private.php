@@ -26,6 +26,8 @@ echo "Username:" .$_SESSION["user"];
 echo "<br>";
 echo "Password: " .$_SESSION["pass"];	
 echo "<br>";	
+echo "Time to connection " .$_SESSION["time"];
+echo "<br>";
 ?>
 </body>
 </html>
