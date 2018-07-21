@@ -25,7 +25,7 @@ $_email = htmlspecialchars($_POST["email"]);
 $_phone = (int)$_POST["phone"];
 $_time= strtotime("now");
 
-$select_table = "SELECT * FROM login WHERE username = $_username, password = $_password, email = $_email, phone = $_phone";
+$select_table = "SELECT * FROM login WHERE username = '.$_username.' OR password = '.$_password.' OR email = '.$_email.' OR phone = '.$_phone.'";
 $result = mysqli_query($connect, $select_table);
 if(mysqli_num_rows($result)>0){
   $back = <<<RETURN_BACK
