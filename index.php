@@ -22,23 +22,22 @@ if (isset($_POST['username'], $_POST['email'],  $_POST['phone'], $_POST['passwor
 $_username = htmlspecialchars($_POST["username"]);
 $_password = md5(htmlspecialchars($_POST["password"]));
 $_email = htmlspecialchars($_POST["email"]);
-$_phone = (int)$_POST["phone"];
+$_phone = $_POST["phone"];
 $_time= strtotime("now");
 
-$select_table = "SELECT * FROM login WHERE username = '.$_username.' OR password = '.$_password.' OR email = '.$_email.' OR phone = '.$_phone.'";
+//REG EXPRESS HERE ....
+
+$select_table = "SELECT * FROM login WHERE username = '$_username' OR password = '$_password' OR email = '$_email' OR phone = '$_phone'";
 $result = mysqli_query($connect, $select_table);
 if(mysqli_num_rows($result)>0){
   $back = <<<RETURN_BACK
 <script type="text/javascript">
-  window.location.href="./logPage.php";
+  window.location.href="./logPage.html";
 </script>
 RETURN_BACK;
 
 echo $back;
 } 
-	//echo '<h3>'.'mi e andata bene!!!<br>' .$_username.' '.$_password. ' '. $_email. ' '. $_phone.'</h3>';
-	//echo '<h3><br>fine della sofferenza</h3>';
-        //  INSERIRE NELLA TABELLA 
 
 	
 	
