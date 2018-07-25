@@ -34,11 +34,30 @@ RETURN_BACK0;
 
 echo $back0;
 }
-echo "Welcome mr: " .$_log_username;
+//echo "Welcome mr: " .$_log_username;
 
 // here send infos db....
+$decript_password = md5($_log_password);
+$select_profile = "SELECT username, password FROM login WHERE username = '$_log_username' && password = '$decript_password'";
+$result = mysqli_query($connect, $select_profile);
+if (mysqli_num_rows($result)>0) {
+  echo " password match! ";
+  echo " username: ".$_log_username;
+  echo " md5 pass: ".$decript_password;
+}else if (mysqli_num_rows($result)==0) {
+  $back3 = <<<RETURN_BACK3
+<script type="text/javascript">
+  window.location.href="./logPage.html";
+</script>
+RETURN_BACK3;
+
+echo $back3;
+}
+
 
 }
+
+
 
 
 

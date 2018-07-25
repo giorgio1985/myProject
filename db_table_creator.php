@@ -3,9 +3,9 @@ require "./db_connector.php";
 // sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS login (
 id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-username VARCHAR(30) NOT NULL,
-email VARCHAR(30) NOT NULL,
-phone VARCHAR(10) NOT NULL,
+username VARCHAR(60) NOT NULL,
+email VARCHAR(60) NOT NULL,
+phone VARCHAR(12) NOT NULL,
 password VARCHAR(70) NOT NULL,
 reg_date TIMESTAMP
 ) ENGINE = InnoDB";

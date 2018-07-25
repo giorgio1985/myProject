@@ -29,17 +29,17 @@ $_time= strtotime("now");
 
 $_username_match=preg_match('/^[0-9a-z_-]{8,32}$/i', $_username);
 $_password_match=preg_match('/^[0-9a-z_-]{8,64}$/i', $_password);
-$_email_match=preg_match('/^[0-9a-z_-]+\@[0-9a-z_-]+\.[a-z]{2,8}$/i', $_email);
+$_email_match=preg_match('/^[0-9a-z._-]{2,60}\@[0-9a-z_-]{2,60}\.[a-z]{2,8}$/i', $_email);
 $_phone_match=preg_match('/^[0-9]{10,12}$/', $_phone);
 if (!($_username_match) || !($_password_match) || !($_email_match) || !($_phone_match)) {
   mysqli_close($connect);
-   $back0 = <<<RETURN_BACK0
+/*   $back0 = <<<RETURN_BACK0
 <script type="text/javascript">
   window.location.href="./createProfile.html";
 </script>
 RETURN_BACK0;
 
-echo $back0;
+echo $back0; */
 }
 
 
