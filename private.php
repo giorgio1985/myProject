@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" type="text/css" href="./form.css">
   <link rel="stylesheet" type="text/css" href="./buttons.css">
+   <link rel="stylesheet" type="text/css" href="./video.css">
 	<title>private</title>
 </head>
 <body>
@@ -29,6 +30,15 @@ echo "<br>";
 echo "Time to connection " .$_SESSION["time"];
 echo "<br>";
 ?>
+<hr>
+
+<div class="random-video">
+   <iframe width="630" height="315" align="middle" 
+src="https://www.youtube.com/embed/UZy1oIjxx3w?controls=0">
+     </iframe> 
+</div>
+<hr>
+<!-- here download videos from db system.... -->
 </body>
 </html>
 

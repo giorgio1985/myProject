@@ -44,6 +44,13 @@ if (mysqli_num_rows($result)>0) {
   echo " password match! ";
   echo " username: ".$_log_username;
   echo " md5 pass: ".$decript_password;
+    $welcome = <<<RETURN_BACK4
+<script type="text/javascript">
+  window.location.href="./private.php";
+</script>
+RETURN_BACK4;
+
+echo $welcome;
 }else if (mysqli_num_rows($result)==0) {
   $back3 = <<<RETURN_BACK3
 <script type="text/javascript">
