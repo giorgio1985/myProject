@@ -23,21 +23,12 @@
 	<title>private</title>
 </head>
 <body>
-
 <?php
 require './index.php';
 require './db_connector.php';
 require './db_table_creator.php';
-//session_start();
-echo "<br>";
-echo "Username:" .$_SESSION["user"];
-echo "<br>";
-echo "Password: " .$_SESSION["pass"];	
-echo "<br>";	
-echo "Time to connection " .$_SESSION["time"];
-echo "<br>";
+session_start();
 ?>
-<hr>
 
   <header>
       <!-- Fixed navbar -->
@@ -49,13 +40,13 @@ echo "<br>";
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">your videos<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Insert videos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#"><?php echo $_SESSION["user"]; ?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">log out</a>
+              <a class="nav-link disabled" href="./destroyer.php">log out</a>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
@@ -85,9 +76,30 @@ echo "<br>";
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
 
+<hr>
+
+
+<hr>
+
+
 <div class="random-video">
    <iframe width="630" height="315" align="middle" 
-src="https://www.youtube.com/embed/UZy1oIjxx3w?controls=0">
+src="https://www.youtube.com/embed/UZy1oIjxx3w?controls=0" allowfullscreen>
+     </iframe> 
+</div>
+
+
+
+<div class="random-video">
+ <iframe width="630" height="315" align="middle" 
+ src="https://www.youtube.com/embed/THzwzCYTIoM?controls=0" allowfullscreen>
+  </iframe>
+</div>
+
+
+<div class="random-video">
+   <iframe width="630" height="315" align="middle" 
+src="https://www.youtube.com/embed/RiWNTzAJZso?controls=0" allowfullscreen>
      </iframe> 
 </div>
 <hr>
