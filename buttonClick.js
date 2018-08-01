@@ -7,3 +7,6 @@ function goIndexPage(){
 function goLoginPage(){
 	window.location.href="./logPage.html";
 }
+function newVideo(){
+	window.location.href="./insert_video.php";
+}

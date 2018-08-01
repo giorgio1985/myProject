@@ -14,13 +14,12 @@
    <link rel="stylesheet" type="text/css" href="./video.css">
 
 
- 
 
-    <!-- Bootstrap core CSS -->
+   <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-	<title>private</title>
+  <title>Your videos</title>
 </head>
 <body>
 <?php
@@ -39,9 +38,9 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+           <!-- <li class="nav-item active">
               <a class="nav-link" href="#" onclick="newVideo()">Insert videos<span class="sr-only">(current)</span></a>
-            </li>
+            </li>   -->
             <li class="nav-item">
               <a class="nav-link" href="#"><?php echo $_SESSION["user"]; ?></a>
             </li>
@@ -58,12 +57,35 @@ session_start();
     </header>
 
      <!-- Begin page content -->
-   <!--  <main role="main" class="container">
-      <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+    <main role="main" class="container">
+      <!-- <h1 class="mt-5">Sticky footer with fixed navbar</h1>
       <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
-    </main>
+      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p> -->
+      <form id="login" method="POST" action="./login.php">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="handshake" class="avatar">
+  </div>
 
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="log_username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="log_password" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form> 
+    </main>
+<!--
     <footer class="footer">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
@@ -78,32 +100,6 @@ session_start();
 
 <hr>
 
-
-<hr>
-
-
-<div class="random-video">
-   <iframe width="630" height="315" align="middle" 
-src="https://www.youtube.com/embed/UZy1oIjxx3w?controls=0" allowfullscreen>
-     </iframe> 
-</div>
-
-
-
-<div class="random-video">
- <iframe width="630" height="315" align="middle" 
- src="https://www.youtube.com/embed/THzwzCYTIoM?controls=0" allowfullscreen>
-  </iframe>
-</div>
-
-
-<div class="random-video">
-   <iframe width="630" height="315" align="middle" 
-src="https://www.youtube.com/embed/RiWNTzAJZso?controls=0" allowfullscreen>
-     </iframe> 
-</div>
-<hr>
 <!-- here download videos from db system.... -->
 </body>
 </html>
-
