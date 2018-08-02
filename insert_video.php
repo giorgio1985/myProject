@@ -61,19 +61,25 @@ session_start();
       <!-- <h1 class="mt-5">Sticky footer with fixed navbar</h1>
       <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
       <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p> -->
-      <form id="login" method="POST" action="./login.php">
+      <form id="inputVideo" method="POST" action="" enctype="multipart/form-data">
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="handshake" class="avatar">
   </div>
 
   <div class="container">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="log_username" required>
+    <label for="name video"><b>Name Video</b></label>
+    <input type="text" placeholder="Enter Name Video" name="load_name" required>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="log_password" required>
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="load_description" required>
 
-    <button type="submit">Login</button>
+    <label for="email"><b>Genere</b></label>
+    <input type="text" placeholder="Enter Genere" name="load_genere" required>
+
+    <label for="file"><b>File</b></label>
+    <input type="file" placeholder="Load File" name="load_file" required>
+
+    <button type="submit">Load!</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
