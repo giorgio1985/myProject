@@ -24,6 +24,8 @@ $_password = md5(htmlspecialchars($_POST["password"]));
 $_email = htmlspecialchars($_POST["email"]);
 $_phone = $_POST["phone"];
 $_time= strtotime("now");
+$finger=$_username + $_password + $_email + $_phone + $_time;
+$_finger_print = md5($finger);
 
 //REG EXPRESS HERE ....
 
@@ -43,7 +45,7 @@ echo $back0;
 }
 
 
-$select_table = "SELECT * FROM login WHERE username = '$_username' OR password = '$_password' OR email = '$_email' OR phone = '$_phone'";
+$select_table = "SELECT * FROM login WHERE fingerPrint1 = '$_finger_print' OR username = '$_username' OR password = '$_password' OR email = '$_email' OR phone = '$_phone'";
 $result = mysqli_query($connect, $select_table);
 if(mysqli_num_rows($result)>0){
   mysqli_close($connect);
@@ -59,8 +61,9 @@ echo $back;
 	
 	
 	
-	$sql= "INSERT INTO login (username, email, phone, password) VALUES ('$_username', '$_email', '$_phone', '$_password')"; 
+	$sql= "INSERT INTO login (fingerPrint1, username, email, phone, password) VALUES ('$_finger_print', '$_username', '$_email', '$_phone', '$_password')"; 
 if (mysqli_query($connect, $sql)) {
+$_SESSION["fing"]=$_finger_print;
 $_SESSION["user"]=$_username;
 $_SESSION["pass"]=$_password;
 $_SESSION["emai"]=$_email;

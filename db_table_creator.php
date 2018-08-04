@@ -2,7 +2,8 @@
 require "./db_connector.php";
 // sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS login (
-id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+fingerPrint1 VARCHAR(32) NOT NULL PRIMARY KEY,
+id INT(6) NOT NULL AUTO_INCREMENT,
 username VARCHAR(60) NOT NULL,
 email VARCHAR(60) NOT NULL,
 phone VARCHAR(12) NOT NULL,
@@ -15,13 +16,13 @@ if (mysqli_query($connect, $sql)) {
     echo "Error creating table: " . mysqli_error($connect);
 }
 $sql2 = "CREATE TABLE IF NOT EXISTS videos (
-idVideo INT(6) NOT NULL, 
+idVideo INT(6) AUTO_INCREMENT NOT NULL, 
+fingerPrint2 VARCHAR(32) NOT NULL,
 nomeVideo VARCHAR(30) NOT NULL,
-durataVideo INT(6) NOT NULL,
 descrizioneVideo VARCHAR(70) NOT NULL,
 genereVideo VARCHAR (30) NOT NULL,
 timestampVideo TIMESTAMP,
-FOREIGN KEY (idVideo) REFERENCES login (id)
+FOREIGN KEY (fingerPrint2) REFERENCES login (fingePrint1)
 )ENGINE =InnoDB";
 if (mysqli_query($connect, $sql2)) {
     echo "Table Videos created successfully";
