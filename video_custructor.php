@@ -59,9 +59,13 @@ echo $_SESSION["user"];
 $prova=$_SESSION["user"];
 
 $select_table_login = "SELECT fingerPrint1 FROM login WHERE username = '$prova'";
+
 $result_login = mysqli_query($connect, $select_table_login);
+$row=mysqli_fetch_array($result_login,MYSQLI_ASSOC);
+$_finger_print1=$row['fingerPrint1'];
+echo $row['fingerPrint1'];
 if ($result_login) {
-  $sql= "INSERT INTO video (fingerPrint2, nomeVideo, descrizioneVideo, genereVideo) VALUES ('$select_table_login', '$_name_video', '$_description_video', '$_files_video')"; 
+  $sql= "INSERT INTO videos (fingerPrint2, nomeVideo, descrizioneVideo, genereVideo, fileVideo) VALUES ('$_finger_print1', '$_name_video', '$_description_video','$_genere_video', '$_files_video')"; 
   if (mysqli_query($connect, $sql)) {
   	echo "ok insert to video table";
   }  else  echo  mysqli_error($connect);
