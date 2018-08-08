@@ -10,3 +10,6 @@ function goLoginPage(){
 function newVideo(){
 	window.location.href="./insert_video.php";
 }
+function myVideos(){
+	window.location.href="./videoBox.php";
+}

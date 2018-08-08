@@ -20,7 +20,7 @@
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-	<title>private</title>
+  <title>private</title>
 </head>
 <body>
 <?php
@@ -43,7 +43,7 @@ session_start();
               <a class="nav-link" href="#" onclick="newVideo()">Insert videos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="myVideos()"><?php echo $_SESSION["user"]; ?></a>
+              <a class="nav-link" href="#"><?php echo $_SESSION["user"]; ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="./destroyer.php">log out</a>
@@ -78,32 +78,12 @@ session_start();
 
 <hr>
 
+<?php
 
-<hr>
+echo "video box!!!!";
 
-
-<div class="random-video">
-   <iframe width="630" height="315" align="middle" 
-src="https://www.youtube.com/embed/UZy1oIjxx3w?controls=0" allowfullscreen>
-     </iframe> 
-</div>
-
-
-
-<div class="random-video">
- <iframe width="630" height="315" align="middle" 
- src="https://www.youtube.com/embed/THzwzCYTIoM?controls=0" allowfullscreen>
-  </iframe>
-</div>
-
-
-<div class="random-video">
-   <iframe width="630" height="315" align="middle" 
-src="https://www.youtube.com/embed/RiWNTzAJZso?controls=0" allowfullscreen>
-     </iframe> 
-</div>
-<hr>
-<!-- here download videos from db system.... -->
+?>
+<!-- here show videos.... -->
 </body>
 </html>
 

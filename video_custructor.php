@@ -68,6 +68,18 @@ if ($result_login) {
   $sql= "INSERT INTO videos (fingerPrint2, nomeVideo, descrizioneVideo, genereVideo, fileVideo) VALUES ('$_finger_print1', '$_name_video', '$_description_video','$_genere_video', '$_files_video')"; 
   if (mysqli_query($connect, $sql)) {
   	echo "ok insert to video table";
+$_SESSION["nomevideo"]=$_finger_print;
+$_SESSION["descrizionevideo"]=$_username;
+$_SESSION["generevideo"]=$_password;
+$_SESSION["filevideo"]=$_email;
+
+  $stringa = <<<MY_MARKER
+<script type="text/javascript">
+  window.location.href="./videoBox.php";
+</script>
+MY_MARKER;
+
+echo $stringa;
   }  else  echo  mysqli_error($connect);
 
 }//mysqli_close($connect);
